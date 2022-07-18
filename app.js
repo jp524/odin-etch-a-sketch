@@ -2,7 +2,7 @@ const container = document.querySelector(".container");
 
 function createSquare(gridSize) {
   const containerWidth = container.offsetWidth;
-  const squareDimensions = Math.floor((containerWidth - 1 * gridSize) / gridSize) + "px";
+  const squareDimensions = (containerWidth - 1 * gridSize) / gridSize + "px";
 
   const square = document.createElement("div");
   square.classList.add("square");
