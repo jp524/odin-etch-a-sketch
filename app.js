@@ -1,6 +1,5 @@
 const container = document.querySelector(".container");
 
-// --- Create the grid --- 
 function createSquare(gridSize) {
   const containerWidth = container.offsetWidth;
   const squareDimensions = Math.floor((containerWidth - 1 * gridSize) / gridSize) + "px";
@@ -12,15 +11,14 @@ function createSquare(gridSize) {
   container.appendChild(square);
 }
 
-// --- Hover effect ---
-const squares = document.querySelectorAll(".square");
-squares.forEach(square => square.addEventListener("mouseover", () => {
-  square.classList.add("hovering");
-}))
+function activateHover() {
+  const squares = document.querySelectorAll(".square");
+  squares.forEach(square => square.addEventListener("mouseover", () => {
+    square.classList.add("hovering");
+  }))
+}
 
-// --- Ask user input to set grid size ---
-const btn = document.querySelector("button");
-btn.addEventListener("click", () => {
+function createGrid() {
   const squares = document.querySelectorAll(".square");
   if (squares) {
     squares.forEach(square => container.removeChild(square))
@@ -36,4 +34,8 @@ btn.addEventListener("click", () => {
   for (let i = 0; i < gridSize * gridSize; i++) {
     createSquare(gridSize);
   };
-});
+  activateHover();
+}
+
+const btn = document.querySelector("button");
+btn.addEventListener("click", createGrid);
