@@ -1,9 +1,14 @@
 const container = document.querySelector(".container");
 
 // --- Create the grid --- 
-function createSquare() {
+function createSquare(gridSize) {
+  const containerWidth = container.offsetWidth;
+  const squareDimensions = Math.floor((containerWidth - 1 * gridSize) / gridSize) + "px";
+
   const square = document.createElement("div");
   square.classList.add("square");
+  square.style.width = squareDimensions;
+  square.style.height = squareDimensions;
   container.appendChild(square);
 }
 
@@ -29,6 +34,6 @@ btn.addEventListener("click", () => {
   };
 
   for (let i = 0; i < gridSize * gridSize; i++) {
-    createSquare();
+    createSquare(gridSize);
   };
-})
+});
