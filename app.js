@@ -24,10 +24,9 @@ function createGrid() {
     squares.forEach(square => container.removeChild(square))
   };
 
-  let gridSize = prompt("Enter the number of square per sides to create the grid:");
-
-  while (gridSize <= 1 && gridSize > 100) {
-    alert(`${gridSize} is not a valid input. Try to enter a number between 2 and 100.`)
+  let gridSize = parseInt(prompt("Enter the number of square per sides to create the grid:"), 10);
+  while (gridSize < 1 || gridSize > 100 || isNaN(gridSize)) {
+    alert(`${gridSize} is not a valid input. Try to enter a number between 1 and 100.`)
     gridSize = prompt("Enter the number of square per sides to create the grid:");
   };
 
